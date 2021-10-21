@@ -1,0 +1,68 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d" Name="window"
+        Title="登录" Height="600" Width="360"
+        ResizeMode="NoResize"
+        WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+    <Window.Resources>
+        <ControlTemplate TargetType="Button" x:Key="Closebutton">
+            <Button Background="Transparent" BorderBrush="{x:Null}" >
+                <Path Data="M0 0 12 12M0 12 12 0" Stroke="White" StrokeThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Button>
+
+        </ControlTemplate>
+        <ControlTemplate TargetType="Button" x:Key="buttondl">
+            <Border Background="#007dfa" CornerRadius="5, 5, 5, 5" >
+                <Grid>
+                    <Border CornerRadius="4" Background="#22ffffff" Name="back" Visibility="Hidden"/>
+                    <ContentControl Content="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Visibility" Value="Visible" TargetName="back"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Border Margin="5" Background="White" CornerRadius="10">
+        <Border.Effect>
+            <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="5" Opacity="0.3" Direction="0"/>
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.8*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="60"/>
+
+            </Grid.RowDefinitions>
+            <Border Background="#007dfa" CornerRadius="10,10,0,0" BorderThickness="0" >
+                <Button Content="Button" HorizontalAlignment="Left" Height="24" Margin="316,9,0,0" VerticalAlignment="Top" Width="23" Click="Button_Click"  Template="{StaticResource Closebutton}" />
+            </Border>
+
+
+
+
+
+            <StackPanel>
+
+                <Border  Width="80" Height="80" CornerRadius="50">
+                    <Border.Background>
+                        <ImageBrush ImageSource="C:\Users\Administrator\source\repos\WpfApp2\WpfApp2\NewFolder1\006mowZnly1fxon7m0vncg305c05cq2w.png"/>
+                    </Border.Background>
+
+                </Border>
+
+            </StackPanel>
+            <Label Content="滑稽注入器登录" HorizontalAlignment="Left" Height="41" Margin="124,112,0,0" VerticalAlignment="Top" Width="95"/>
+            <Button Content="登 录" HorizontalAlignment="Left" Height="44" Margin="40,212,0,0" Grid.Row="1" VerticalAlignment="Top" Width="278" Template="{StaticResource buttondl}" Click="Button_Click_1" />
+            <TextBox x:Name="_6" HorizontalAlignment="Left" Height="18" Margin="40,98,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" TextChanged="TextBox_TextChanged"/>
+            <Label Content="卡密" HorizontalAlignment="Left" Height="22" Margin="5,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="35"/>
+
+        </Grid>
+    </Border>
+</Window>
